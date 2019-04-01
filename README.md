@@ -17,3 +17,7 @@
 #### 代码提交
 
 1. 完成所有jsp页面的编写并提交。
+
+#### 项目展示
+
+![首页展示](https://images.gitee.com/uploads/images/2019/0401/114159_cf77e49a_4890054.png "screencapture-file-E-git-qhkt-index-html-2019-04-01-11_41_23.png")
