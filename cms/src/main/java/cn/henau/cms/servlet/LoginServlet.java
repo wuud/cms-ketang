@@ -73,7 +73,7 @@ public class LoginServlet extends HttpServlet {
                 cookie.setMaxAge(3600 * 24 * 7);
             }
             resp.addCookie(cookie);
-            resp.sendRedirect("/cms/index");
+            resp.sendRedirect("/cms");
         } else {
             req.setAttribute("error", "登录时发生异常！");
             req.getRequestDispatcher("/WEB-INF/jsp/login.jsp").forward(req, resp);
@@ -101,7 +101,7 @@ public class LoginServlet extends HttpServlet {
             req.setAttribute("error", "登录时发生异常！");
             req.getRequestDispatcher("/WEB-INF/jsp/login.jsp").forward(req, resp);
         }
-        resp.sendRedirect("/cms/index");
+        resp.sendRedirect("/");
     }
 
     private void logout(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {

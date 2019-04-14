@@ -7,7 +7,6 @@ import java.util.UUID;
 
 import org.apache.commons.lang3.StringUtils;
 
-import cn.henau.cms.annotation.Component;
 import cn.henau.cms.dao.RoleDao;
 import cn.henau.cms.dao.TicketDao;
 import cn.henau.cms.dao.UserDao;
@@ -16,7 +15,6 @@ import cn.henau.cms.model.Ticket;
 import cn.henau.cms.model.User;
 import cn.henau.cms.utils.MybatisUtil;
 
-@Component
 public class LoginService {
 
     UserDao userDao = MybatisUtil.getSession(UserDao.class);
@@ -56,7 +54,7 @@ public class LoginService {
             map.put("error", "手机号已被注册！");
             return map;
         } else if (userDao.getUserByEmail(email) != null) {
-            map.put("error", "邮箱已被注册�?");
+            map.put("error", "邮箱已被注册�?");
             return map;
         }
         Role role = roleDao.getRoleById(1);
@@ -70,10 +68,10 @@ public class LoginService {
     public String addTicket(int userId, String rememberme) {
         Ticket t = new Ticket();
         t.setUserId(userId);
-        t.setStaus(0);//0表示ticket正常，非0表示ticket已过�?
+        t.setStaus(0);//0表示ticket正常，非0表示ticket已过�?
         t.setTicket(UUID.randomUUID().toString().replaceAll("-", ""));
         Date d = new Date();
-        //如果用户登录时�?�择了remeberme复�?�框，则ticket的生命周期要�?
+        //如果用户登录时�?�择了remeberme复�?�框，则ticket的生命周期要�?
         if (rememberme.equals("on")) {
             d.setTime(d.getTime() + (long) 3600 * 24 * 30 * 1000);
         } else {
