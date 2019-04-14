@@ -17,7 +17,6 @@ import cn.henau.cms.service.LoginService;
  * <li>reg只能POST
  * <li>logout只能GET
  *
- * @author wuu 2019�?4�?7�?
  */
 @WebServlet(value = {"/login", "/doLogin", "/reg", "/logout"})
 public class LoginServlet extends HttpServlet {
@@ -69,11 +68,8 @@ public class LoginServlet extends HttpServlet {
             String ticket = map.get("ticket");
             Cookie cookie = new Cookie("ticket", ticket);
             cookie.setPath("/");
-            if (rememberme.equals("on")) {
-                cookie.setMaxAge(3600 * 24 * 7);
-            }
             resp.addCookie(cookie);
-            resp.sendRedirect("/cms");
+            resp.sendRedirect("/cms/index");
         } else {
             req.setAttribute("error", "登录时发生异常！");
             req.getRequestDispatcher("/WEB-INF/jsp/login.jsp").forward(req, resp);
@@ -101,7 +97,7 @@ public class LoginServlet extends HttpServlet {
             req.setAttribute("error", "登录时发生异常！");
             req.getRequestDispatcher("/WEB-INF/jsp/login.jsp").forward(req, resp);
         }
-        resp.sendRedirect("/");
+        resp.sendRedirect("/cms/index");
     }
 
     private void logout(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {

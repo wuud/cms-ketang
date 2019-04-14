@@ -3,6 +3,7 @@ package cn.henau.cms.servlet;
 import java.io.IOException;
 import java.util.List;
 
+import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -12,7 +13,7 @@ import javax.servlet.http.HttpServletResponse;
 import cn.henau.cms.model.Course;
 import cn.henau.cms.service.CourseService;
 
-@WebServlet(value = {"/index", "/"})
+@WebServlet(value = {"/index"})
 public class IndexServlet extends HttpServlet {
 
     private static final long serialVersionUID = 1L;
@@ -21,7 +22,8 @@ public class IndexServlet extends HttpServlet {
 
     @Override
     public void init() throws ServletException {
-        courseService = new CourseService();
+    	ServletContext context = getServletContext();
+        courseService = (CourseService) context.getAttribute("CourseService");
         super.init();
     }
 

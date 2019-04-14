@@ -3,18 +3,24 @@
         PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-config.dtd">
 <configuration>
+
+    <properties resource="jdbc.properties"></properties>
+    
     <settings>
         <setting name="mapUnderscoreToCamelCase" value="true"/>
     </settings>
+    
+
+    
     <environments default="mysql">
         <environment id="mysql">
             <transactionManager type="JDBC"/>
             <dataSource type="POOLED">
-                <property name="driver" value="com.mysql.jdbc.Driver"/>
+                <property name="driver" value="${jdbc.driverClass}"/>
                 <property name="url"
-                          value="jdbc:mysql://localhost:3306/qihangkt?useSSL=false"/>
-                <property name="username" value="root"/>
-                <property name="password" value="w123456"/>
+                          value="${jdbc.jdbcUrl}"/>
+                <property name="username" value="${jdbc.username}"/>
+                <property name="password" value="${jdbc.password}"/>
             </dataSource>
         </environment>
     </environments>

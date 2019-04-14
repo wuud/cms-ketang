@@ -10,7 +10,7 @@ import org.apache.ibatis.session.SqlSessionFactoryBuilder;
 
 public class MybatisUtil {
 
-    public static <T> T getSession(Class<T> clazz) {
+    public static <T> T getClass(Class<T> clazz) {
         InputStream inputStream;
         SqlSession session = null;
         T t = null;
@@ -25,6 +25,19 @@ public class MybatisUtil {
 //			session.close();
         }
         return t;
+    }
+    
+    public static SqlSession getSession() {
+    	InputStream inputStream;
+        SqlSession session = null;
+        try {
+            inputStream = Resources.getResourceAsStream("mybatis-config.xml");
+            SqlSessionFactory ssf = new SqlSessionFactoryBuilder().build(inputStream);
+            session = ssf.openSession();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return session;
     }
 
 }

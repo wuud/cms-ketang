@@ -2,16 +2,12 @@ package cn.henau.cms.servlet;
 
 import java.io.File;
 import java.io.FilenameFilter;
-import java.lang.reflect.Method;
-import java.util.ArrayList;
-import java.util.List;
 
 import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 
 import cn.henau.cms.annotation.Component;
-import cn.henau.cms.model.Resource;
 
 public class InitServlet extends HttpServlet {
 

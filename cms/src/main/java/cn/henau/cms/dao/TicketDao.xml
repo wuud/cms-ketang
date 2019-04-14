@@ -9,12 +9,16 @@
 		select * from ticket where ticket=#{ticket}
 	</select>
 
-    <insert id="insertTicket">
+    <!-- <insert id="insertTicket">
 	 	insert into ticket(status,user_id,ticket,expired) 
 	 	values(#{status},#{userId},#{ticket},#{expired})
+	</insert> -->
+	<insert id="insertTicket">
+		insert into ticket(ticket,status,expired,user_id)
+		values(#{ticket},#{status},#{expired},#{userId})
 	</insert>
     <update id="updateTicket">
-		update  ticket set  status=#{status},user_id=#{userId},expired=#{expired}
+		update ticket set status=#{status},user_id=#{userId},expired=#{expired}
 		where id=#{id}
 	</update>
 
