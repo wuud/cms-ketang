@@ -1,0 +1,23 @@
+/*页面底部css*/
+.footer {
+    margin-top: 50px;
+    background: #ddd;
+    padding: 30px;
+}
+
+.footer > div.footericon {
+    text-align: center;
+}
+
+.footer > div.footerion > span {
+    font-size: 60px;
+}
+
+.footer > .cr {
+    text-align: center;
+}
+
+.footer > .cr > a {
+    text-decoration: none;
+    color: #333;
+}
