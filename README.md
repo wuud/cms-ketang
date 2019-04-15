@@ -20,6 +20,8 @@
 2. 完成所有jsp页面的编写并提交。
 3. 实现首页的展示，以及部分登录功能。
 4. 自定义注解，管理一些全局类。
+5. 利用Filter、ThreadLocal以及Cookie实现登录功能。
+6. 
 
 #### 项目展示
 
@@ -28,3 +30,5 @@
 
 - 后台管理：
 ![后台展示](https://images.gitee.com/uploads/images/2019/0401/114345_0539aa92_4890054.png "捕获.PNG")
+
+- 登录：![登录页面](https://images.gitee.com/uploads/images/2019/0415/102722_bfe6f1da_4890054.png "screencapture-localhost-8080-cms-login-2019-04-15-10_24_49.png")
