@@ -32,3 +32,8 @@
 ![后台展示](https://images.gitee.com/uploads/images/2019/0401/114345_0539aa92_4890054.png "捕获.PNG")
 
 - **登录**：![登录页面](https://images.gitee.com/uploads/images/2019/0415/102722_bfe6f1da_4890054.png "screencapture-localhost-8080-cms-login-2019-04-15-10_24_49.png")
+
+### 小组分工
+
+- **前端界面分工** [脑图地址](http://naotu.baidu.com/file/d8146fd0865bdb0a8c430fcc8ceed640?token=5a613e0069009ea7)
+![前端界面分工](https://images.gitee.com/uploads/images/2019/0420/205118_4126e28e_4890054.png "前端页面.png")
