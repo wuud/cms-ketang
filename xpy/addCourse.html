@@ -1,0 +1,142 @@
+
+
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>发布课程</title>
+<link rel="icon" href="/static/images/logo.png" type="image/x-icon" />
+
+<link
+	href="/static/lib/bootstrap/css/bootstrap.min.css"
+	rel="stylesheet">
+<link rel="stylesheet" type="text/css"
+	href="/static/css/main.css">
+<link rel="stylesheet" type="text/css"
+	href="/static/css/index.css">
+<link rel="stylesheet"
+	href="/static/font/iconfont.css">
+
+<!--[if lt IE 9]>
+      <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+      <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+    <![endif]-->
+</head>
+<body>
+	
+	<!-- 导航条 -->
+	<nav class="navbar navbar-default navbar-static-top">
+		<div class="container">
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle" data-toggle="collapse"
+					data-target="#qh_navbar">
+					<span class="icon-bar"></span> <span class="icon-bar"></span> <span
+						class="icon-bar"></span>
+				</button>
+				<a href="/" class="navbar-brand"><span
+					class="iconfont icon-chuanxiang "></span>启航课堂</a>
+			</div>
+			<div id="qh_navbar" class="collapse navbar-collapse">
+				<ul class="nav navbar-nav">
+					<li><a href="/">首页</a></li>
+					<li><a href="/allCourse">全部课程</a></li>
+					<li><a href="/download">资料下载</a></li>
+					
+						<li><a href="/addCourse">发布课程</a></li>
+						
+							<li><a href="/admin">后台管理</a></li>
+						
+					
+					<li><a href="/feedback">意见反馈</a></li>
+				</ul>
+				<div class="navbar-form navbar-left">
+					<form action="/searchCourse" method="post">
+						<div class="input-group">
+							<input type="text" name="search_str" class="form-control"
+								placeholder="课程名称"> <span class="input-group-btn">
+								<button type="button" class="btn btn-primary">
+									<span class="glyphicon glyphicon-search"></span>
+								</button>
+							</span>
+						</div>
+					</form>
+				</div>
+				<ul class="nav navbar-nav navbar-right" id="reglog">
+					
+					
+						<li><a href="/localUser" id="username">super</a></li>
+						<li><a href="/logout"
+							alt="logout"><i class="iconfont icon-tuichu"></i></a></li>
+
+					
+				</ul>
+			</div>
+		</div>
+	</nav>
+	<div class="container">
+
+		<form action="/addCourse"
+			method="post" enctype="multipart/form-data" class="biaodan">
+			<div class="row">
+				<div class="form-group col-md-8 col-md-offset-8 ">
+					<label for="courseName">课程名称</label> <input type="text"
+						class="form-control" name="courseName" placeholder="课程名称">
+				</div>
+			</div>
+			<div class="row">
+				<div class="form-group col-md-8 col-md-offset-8 top">
+					<label for="courseIntro">课程介绍</label> <input type="text"
+						class="form-control" name="courseIntro" placeholder="课程介绍">
+				</div>
+			</div>
+			<div class="row">
+				<div class="form-group col-md-8 col-md-offset-8 ">
+					<label for="courseUser">课程发布者</label> <input type="text"
+						class="form-control" name="courseUser" placeholder="课程发布者">
+				</div>
+			</div>
+
+			<div class="row">
+				<div class="form-group col-md-8 col-md-offset-8 ">
+					<label for="coursePicture">课程封面</label> <input type="file"
+						multiple="multiple" class="form-inline" name="coursePicture"
+						placeholder="课程封面">
+					<p class="help-block">请上传600x1060分辨率的图片</p>
+				</div>
+			</div>
+			<div class="row">
+				<div class="form-group col-md-8 col-md-offset-8 ">
+					<label for="courseFile">课程视频</label> <input type="file"
+						multiple="multiple" class="form-inline" name="courseVideo"
+						placeholder="课程视频">
+					<p class="help-block">课程学习视频（可一次上传多个文件，不要大于100M）</p>
+				</div>
+			</div>
+
+			<div class="row">
+				<div class="form-group col-md-8 col-md-offset-8 ">
+					<label for="courseFile">课程资料</label> <input type="file"
+						name="courseFile" placeholder="课程资料">
+					<p class="help-block">课程学习资料（请打包后上传）</p>
+				</div>
+			</div>
+
+			<button type="submit" class="btn btn-primary col-md-offset-11">发布课程</button>
+            <div class="bottom"></div>
+		</form>
+	</div>
+	
+<!-- 页面底部 -->
+	<div class="footer hidden-xs">
+		<div class="footericon">
+			<span class="iconfont icon-chuanxiang"></span>
+		</div>
+		<p class="cr">Copyright © 2018 qihangzaixian. All Rights Reserved.</p>
+		<p class="cr">
+			启航在线课程 版权所有 | <a href="#">工具下载</a> | <a href="#">资料下载</a> | <a
+				href="#">视频下载</a> | <a href="#">问题反馈</a> | <a href="#">帮助</a>
+		</p>
+	</div>
+</body>
+</html>
