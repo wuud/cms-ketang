@@ -20,6 +20,45 @@
     <![endif]-->
 </head>1
 <body>
+	<!-- 导航条 -->
+    <nav class="navbar navbar-default navbar-static-top">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#qh_navbar">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a href="#" class="navbar-brand"><span class="iconfont icon-chuanxiang "></span>启航课堂</a>
+        </div>
+        <div id="qh_navbar" class="collapse navbar-collapse">
+          <ul class="nav navbar-nav">
+            <li><a href="#">首页</a></li>
+            <li><a href="#">全部课程</a></li>
+            <li><a href="#">问题讨论</a></li>
+            <li><a href="#">学习路线</a></li>
+            <li> <a href="#">资料下载</a></li>
+            <li><a href="#">在线提问</a></li>
+          </ul>
+          <div class="navbar-form navbar-left">
+            <form action="" accept="#" method="get">
+              <div class="input-group">
+                <input type="text" name="search_str" class="form-control" placeholder="课程名称">
+                <span class="input-group-btn">
+                  <button type="button" class="btn btn-primary">
+                    <span class="glyphicon glyphicon-search"></span>
+                  </button>
+                </span>
+              </div>
+            </form>
+          </div>
+          <ul class="nav navbar-nav navbar-right" id="reglog">
+            <li><a href="#"><span class="glyphicon glyphicon-user"></span> 登录</a></li>
+            <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> 注册</a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
 
 	<!-- 章节列表 -->
 	<div class="container">
