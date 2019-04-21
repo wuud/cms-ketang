@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>课程名称</title>
+<link rel="icon" href="/static/images/logo.png" type="image/x-icon" />
+
+<link
+	href="/static/lib/bootstrap/css/bootstrap.min.css"
+	rel="stylesheet">
+<link rel="stylesheet" type="text/css"
+	href="/static/css/main.css">
+<link rel="stylesheet" type="text/css"
+	href="/static/css/index.css">
+<link rel="stylesheet"
+	href="/static/font/iconfont.css">
+
+<!--[if lt IE 9]>
+      <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+      <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+    <![endif]-->
+</head>
+<body>
+	
+	<!-- 导航条 -->
+	<nav class="navbar navbar-default navbar-static-top">
+		<div class="container">
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle" data-toggle="collapse"
+					data-target="#qh_navbar">
+					<span class="icon-bar"></span> <span class="icon-bar"></span> <span
+						class="icon-bar"></span>
+				</button>
+				<a href="/" class="navbar-brand"><span
+					class="iconfont icon-chuanxiang "></span>启航课堂</a>
+			</div>
+			<div id="qh_navbar" class="collapse navbar-collapse">
+				<ul class="nav navbar-nav">
+					<li><a href="/">首页</a></li>
+					<li><a href="/allCourse">全部课程</a></li>
+					<li><a href="/download">资料下载</a></li>
+					
+						<li><a href="/addCourse">发布课程</a></li>
+						
+							<li><a href="/admin">后台管理</a></li>
+						
+					
+					<li><a href="/feedback">意见反馈</a></li>
+				</ul>
+				<div class="navbar-form navbar-left">
+					<form action="/searchCourse" method="post">
+						<div class="input-group">
+							<input type="text" name="search_str" class="form-control"
+								placeholder="课程名称"> <span class="input-group-btn">
+								<button type="button" class="btn btn-primary">
+									<span class="glyphicon glyphicon-search"></span>
+								</button>
+							</span>
+						</div>
+					</form>
+				</div>
+				<ul class="nav navbar-nav navbar-right" id="reglog">
+					
+					
+						<li><a href="/localUser" id="username">super</a></li>
+						<li><a href="/logout"
+							alt="logout"><i class="iconfont icon-tuichu"></i></a></li>
+
+					
+				</ul>
+			</div>
+		</div>
+	</nav>
+	<!-- 章节列表 -->
+	<div class="container">
+		<h3>课程章节列表</h3>
+		<table class="table table-hover">
+			<thead>
+				<tr>
+					<th width="20%" style="text-align: center">#</th>
+					<th width="60%" style="text-align: center">视频名称</th>
+					<th width="20%" style="text-align: center">视频大小</th>
+				</tr>
+			</thead>
+			<tbody>
+				
+					<tr height="60px" style="line-height:60px;font-size:18px background-color:#E0DBDB">
+						<th scope="row" style="text-align: center;padding-top:20px;">1</th>
+						<td style="text-align: center;padding-top:20px;"><a
+							href="/course/33/53">
+								demo1.mp4</a></td>
+						<td style="text-align: center;padding-top:20px;">81.0M</td>
+					</tr>
+				
+					<tr height="60px" style="line-height:60px;font-size:18px">
+						<th scope="row" style="text-align: center;padding-top:20px;">2</th>
+						<td style="text-align: center;padding-top:20px;"><a
+							href="/course/33/54">
+								demo2.mp4</a></td>
+						<td style="text-align: center;padding-top:20px;">81.0M</td>
+					</tr>
+				
+					<tr height="60px" style="line-height:60px;font-size:18px background-color:#E0DBDB">
+						<th scope="row" style="text-align: center;padding-top:20px;">3</th>
+						<td style="text-align: center;padding-top:20px;"><a
+							href="/course/33/55">
+								demo3.mp4</a></td>
+						<td style="text-align: center;padding-top:20px;">81.0M</td>
+					</tr>
+				
+					<tr height="60px" style="line-height:60px;font-size:18px">
+						<th scope="row" style="text-align: center;padding-top:20px;">4</th>
+						<td style="text-align: center;padding-top:20px;"><a
+							href="/course/33/56">
+								demo4.mp4</a></td>
+						<td style="text-align: center;padding-top:20px;">81.0M</td>
+					</tr>
+				
+			</tbody>
+		</table>
+	</div>
+	
+<!-- 页面底部 -->
+	<div class="footer hidden-xs">
+		<div class="footericon">
+			<span class="iconfont icon-chuanxiang"></span>
+		</div>
+		<p class="cr">Copyright © 2018 qihangzaixian. All Rights Reserved.</p>
+		<p class="cr">
+			启航在线课程 版权所有 | <a href="#">工具下载</a> | <a href="#">资料下载</a> | <a
+				href="#">视频下载</a> | <a href="#">问题反馈</a> | <a href="#">帮助</a>
+		</p>
+	</div>
+</body>
+</html>
