@@ -46,13 +46,16 @@ public class InitServlet extends HttpServlet {
 					String classAllpackageName = packageName + "." + classFileName;
 					// 通过反射获取到对应的类的对象
 					Class clazz = Class.forName(classAllpackageName);
-					// 如果当前类没有AuthClass注解，直接跳出当前循环
+					// 如果当前类没有Component注解，直接跳出当前循环
 					if (!clazz.isAnnotationPresent(Component.class))
 						continue;
 					else {
 						Object newInstance;
 						newInstance = clazz.newInstance();
 						String className=clazz.getName().substring(clazz.getName().lastIndexOf('.')+1);
+						if(className.equals("HostHolder")) {
+							System.out.println(newInstance);
+						}
 						sc.setAttribute(className, newInstance);
 					}
 				} catch (ClassNotFoundException e) {

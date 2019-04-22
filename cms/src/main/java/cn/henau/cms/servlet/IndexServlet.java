@@ -13,7 +13,7 @@ import javax.servlet.http.HttpServletResponse;
 import cn.henau.cms.model.Course;
 import cn.henau.cms.service.CourseService;
 
-@WebServlet(value = {"/index"})
+@WebServlet(value = {"/index",""})
 public class IndexServlet extends HttpServlet {
 
     private static final long serialVersionUID = 1L;

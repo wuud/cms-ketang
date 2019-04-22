@@ -4,7 +4,13 @@ import java.util.Date;
 
 public class Ticket {
 
-    private int id;
+    @Override
+	public String toString() {
+		return "Ticket [id=" + id + ", userId=" + userId + ", status=" + status + ", ticket=" + ticket + ", expired="
+				+ expired + "]";
+	}
+
+	private int id;
     private int userId;
 
     private int status;

@@ -22,4 +22,6 @@ public interface CourseDao {
 
     List<Course> getCourseByPage(@Param("pageSize") int pageSize, @Param("offsetNum") int offsetNum);
 
+	Integer countAllCourse();
+
 }

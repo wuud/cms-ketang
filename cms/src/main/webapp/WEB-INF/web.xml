@@ -8,4 +8,12 @@
 		<servlet-class>cn.henau.cms.servlet.InitServlet</servlet-class>
 		<load-on-startup>1</load-on-startup>
 	</servlet>
+	<!-- <servlet>
+		<servlet-name>CourseServlet</servlet-name>
+		<servlet-class>cn.henau.cms.servlet.CourseServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>CourseServlet</servlet-name>
+		<url-pattern>/course/</url-pattern>
+	</servlet-mapping> -->
 </web-app>

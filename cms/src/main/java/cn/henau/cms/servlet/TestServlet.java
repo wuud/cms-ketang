@@ -29,6 +29,7 @@ public class TestServlet extends HttpServlet{
 		CourseService courseService = (CourseService) context.getAttribute("CourseService");
 		List<Course> list = courseService.getAllCourse();
 		System.out.println(list);
+//		req.getRequestDispatcher("/WEB-INF/jsp/test.jsp").forward(req, resp);
 	}
 
 }

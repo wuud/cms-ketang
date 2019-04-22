@@ -7,7 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>启航课堂后台管理</title>
+    <title>在线课堂后台管理</title>
 
     <link href="${pageContext.request.contextPath}/static/lib/bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/static/css/admin.css">
@@ -23,7 +23,7 @@
 <nav class="navbar navbar-inverse navbar-static-top">
     <div class="container">
         <a href="#" class="navbar-brand"><span
-                class="iconfont icon-chuanxiang "></span>启航课堂后台管理系统</a>
+                class="iconfont icon-chuanxiang "></span>在线课堂后台管理系统</a>
         <div class="log_info">
             <div class="col-md-8 col-md-offset-8">
                 <i class="iconfont icon-denglu" style="font-size: 24px"></i> ${user.username}
@@ -50,9 +50,6 @@
             </a></li>
             <li><a href="" data-iframesrc="admin/user/2"> <i
                     style="font-size: 16px" class="iconfont icon-jianhao"></i>教师管理
-            </a></li>
-            <li><a href="" data-iframesrc="admin/res"> <i
-                    style="font-size: 16px" class="iconfont icon-jianhao"></i>资源管理
             </a></li>
             <li><a href="" data-iframesrc="admin/user/3"> <i
                     style="font-size: 16px" class="iconfont icon-jianhao"></i>管理员设置
@@ -112,7 +109,7 @@
 <!-- 路径导航 -->
 <div id="path_nav">
     <ol class="breadcrumb">
-        <li><a href="admin.html">后台首页</a></li>
+        <li><a href="${pageContext.request.contextPath}/admin">后台首页</a></li>
         <li>系统设置</li>
         <li class="active">欢迎</li>
     </ol>

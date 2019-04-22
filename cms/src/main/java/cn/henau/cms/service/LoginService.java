@@ -5,7 +5,10 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.UUID;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.apache.commons.lang3.StringUtils;
+import org.apache.ibatis.session.SqlSession;
 
 import cn.henau.cms.annotation.Component;
 import cn.henau.cms.dao.RoleDao;
@@ -23,7 +26,7 @@ public class LoginService {
 	TicketDao ticketDao = MybatisUtil.getClass(TicketDao.class);
 	RoleDao roleDao = MybatisUtil.getClass(RoleDao.class);
 
-	public Map<String, String> login(String number, String password, String rememberme) {
+	public Map<String, String> login(HttpServletRequest req,String number, String password, String rememberme) {
 		Map<String, String> map = new HashMap<>();
 		User u = null;
 		if (StringUtils.isBlank(number) || StringUtils.isBlank(password)) {
@@ -55,7 +58,7 @@ public class LoginService {
 			map.put("error", "手机号已被注册！");
 			return map;
 		} else if (userDao.getUserByEmail(email) != null) {
-			map.put("error", "邮箱已被注册�?");
+			map.put("error", "邮箱已被注册!");
 			return map;
 		}
 		Role role = roleDao.getRoleById(1);
@@ -79,16 +82,21 @@ public class LoginService {
 			d.setTime(d.getTime() + (long) 3600 * 24 * 1000);
 		}
 		t.setExpired(d);
-		ticketDao.insertTicket(t);
+		SqlSession session = MybatisUtil.getSession();
+		TicketDao dao = session.getMapper(TicketDao.class);
+		dao.insertTicket(t);
+		session.commit();
 		return t.getTicket();
 
 	}
 
 	public void logout(String ticket) {
-		Ticket t = ticketDao.getTicketByTicket(ticket);
+		SqlSession session = MybatisUtil.getSession();
+		TicketDao dao = session.getMapper(TicketDao.class);
+		Ticket t = dao.getTicketByTicket(ticket);
 		t.setStaus(1);
-		ticketDao.updateTicket(t);
-
+		dao.updateTicket(t);
+		session.commit();
 	}
 
 }

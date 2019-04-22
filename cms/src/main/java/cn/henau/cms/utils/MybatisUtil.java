@@ -21,9 +21,7 @@ public class MybatisUtil {
             t = session.getMapper(clazz);
         } catch (IOException e) {
             e.printStackTrace();
-        } finally {
-//			session.close();
-        }
+        } 
         return t;
     }
     

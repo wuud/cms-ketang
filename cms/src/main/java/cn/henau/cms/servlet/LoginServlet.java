@@ -58,7 +58,7 @@ public class LoginServlet extends HttpServlet {
         String password = req.getParameter("password");
         String rememberme = req.getParameter("rememberme");
 
-        Map<String, String> map = loginService.login(number, password, rememberme);
+        Map<String, String> map = loginService.login(req,number, password, rememberme);
 
         if (map.containsKey("error")) {
             req.setAttribute("error", map.get("error"));
@@ -101,14 +101,13 @@ public class LoginServlet extends HttpServlet {
     }
 
     private void logout(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        Cookie[] cookies = req.getCookies();
+    	Cookie[] cookies = req.getCookies();
         for (Cookie cookie : cookies) {
             if (cookie.getName().equals("ticket")) {
                 loginService.logout(cookie.getValue());
             }
         }
-
-
+        resp.sendRedirect("/cms/");
     }
 
 }

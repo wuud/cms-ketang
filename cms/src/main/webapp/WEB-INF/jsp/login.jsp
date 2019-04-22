@@ -67,13 +67,13 @@
 								<p>
 									<a href="#">找回密码</a> | 还没有账号? <a>先注册一个</a>
 								</p>
-								<p style="text-align: right;">使用第三账号登录:</p>
+								<!-- <p style="text-align: right;">使用第三账号登录:</p>
 								<p style="text-align: right;">
 									<a href="#" style="text-decoration: none;"><span
 										style="font-size: 30px;" class="iconfont icon-weixin-copy "></span></a>
 									<a href="#" style="text-decoration: none;"><span
 										style="font-size: 30px;" class="iconfont icon-QQ"></span></a>
-								</p>
+								</p> -->
 							</div>
 						</form>
 					</div>

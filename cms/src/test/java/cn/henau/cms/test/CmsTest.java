@@ -8,9 +8,9 @@ import org.junit.Test;
 import cn.henau.cms.dao.TicketDao;
 import cn.henau.cms.model.Ticket;
 import cn.henau.cms.utils.MybatisUtil;
-//作者：谢攀宇
+
 public class CmsTest {
-	//测试TicketDao功能
+	
 	@Test
 	public void test() {
 		Ticket ticket=new Ticket();

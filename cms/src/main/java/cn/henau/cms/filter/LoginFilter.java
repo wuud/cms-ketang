@@ -15,42 +15,39 @@ import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 
 import cn.henau.cms.annotation.Component;
-import cn.henau.cms.dao.TicketDao;
 import cn.henau.cms.dao.UserDao;
 import cn.henau.cms.model.Ticket;
 import cn.henau.cms.model.User;
 import cn.henau.cms.service.HostHolder;
+import cn.henau.cms.service.TicketService;
 import cn.henau.cms.utils.MybatisUtil;
 
 @WebFilter(value = "/*")
 @Component
 public class LoginFilter implements Filter {
 	
-	TicketDao ticketDao;
+	TicketService ticketService;
 	UserDao userDao;
 	HostHolder hostHolder;
 
     @Override
     public void init(FilterConfig filterConfig) throws ServletException {
-    	ticketDao=MybatisUtil.getClass(TicketDao.class);
     	userDao=MybatisUtil.getClass(UserDao.class);
-    	
-    	//拿到提前放到ServletContext中的hostHolder对象
-    	ServletContext context=filterConfig.getServletContext();
-    	hostHolder=(HostHolder) context.getAttribute("hostHolder");
-
     }
 
     @Override
     public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain)
             throws IOException, ServletException {
+    	ServletContext context=request.getServletContext();
+    	ticketService=(TicketService) context.getAttribute("TicketService");
+    	hostHolder=(HostHolder) context.getAttribute("HostHolder");
     	Ticket ticket = null;
     	HttpServletRequest req=(HttpServletRequest) request;
 		Cookie[] cookies = req.getCookies();
 		if (cookies != null) {
 			for (Cookie c : cookies) {
 				if (c.getName().equals("ticket")) {
-					ticket = ticketDao.getTicketByTicket(c.getValue());
+					ticket = ticketService.getTicketByTicket(c.getValue());
 				}
 			}
 		}
@@ -62,7 +59,7 @@ public class LoginFilter implements Filter {
 		//如果拿到ticket，则说明用户已登录，将user对象添加到ServletContext
 		User user = userDao.getUserById(ticket.getUserId());
 		hostHolder.setUser(user);
-		request.getServletContext().setAttribute("user", user);
+		req.setAttribute("user", user);
         
         chain.doFilter(request, response);
 
@@ -70,8 +67,7 @@ public class LoginFilter implements Filter {
 
     @Override
     public void destroy() {
-
-
+    	
     }
 
 }

@@ -69,7 +69,7 @@
         </h3>
     </div>
     <div class="row">
-
+        <c:forEach items="${courseList }" var="course">
             <div class="col-xs-12 col-md-6">
                 <div class="thumbnail">
                     <a href="${pageContext.request.contextPath}/course/${course.id}"><img
@@ -83,6 +83,7 @@
                     </div>
                 </div>
             </div>
+        </c:forEach>
     </div>
 </div>
 <%@ include file="/WEB-INF/jsp/footer.jsp" %>

@@ -9,12 +9,12 @@
                 <span class="icon-bar"></span> <span class="icon-bar"></span> <span
                     class="icon-bar"></span>
             </button>
-            <a href="${pageContext.request.contextPath}/" class="navbar-brand"><span
-                    class="iconfont icon-chuanxiang "></span>启航课堂</a>
+            <a href="${pageContext.request.contextPath}/index" class="navbar-brand"><span
+                    class="iconfont icon-chuanxiang "></span>在线课堂</a>
         </div>
         <div id="qh_navbar" class="collapse navbar-collapse">
             <ul class="nav navbar-nav">
-                <li><a href="${pageContext.request.contextPath}/">首页</a></li>
+                <li><a href="${pageContext.request.contextPath}/index">首页</a></li>
                 <li><a href="${pageContext.request.contextPath}/allCourse">全部课程</a></li>
                 <li><a href="${pageContext.request.contextPath}/download">资料下载</a></li>
                 <c:if test="${user.roleId.id>=2}">
