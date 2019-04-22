@@ -29,7 +29,7 @@
     <![endif]-->
 </head>
 <body>
-<%@ include file="/WEB-INF/jsp/header.jsp" %>
+	<%@ include file="/WEB-INF/jsp/header.jsp"%>
 	<!-- 登录表单 -->
 	<div id="loginhtml" class="container">
 		<div class="row">
@@ -56,6 +56,7 @@
 								<label>密码:</label> <input type="password" name="password"
 									class="form-control" placeholder="密码">
 							</div>
+
 							<div class="checkbox">
 								<label><input type="checkbox" name="rememberme">10天内自动登录</label>
 							</div>
@@ -67,13 +68,6 @@
 								<p>
 									<a href="#">找回密码</a> | 还没有账号? <a>先注册一个</a>
 								</p>
-								<!-- <p style="text-align: right;">使用第三账号登录:</p>
-								<p style="text-align: right;">
-									<a href="#" style="text-decoration: none;"><span
-										style="font-size: 30px;" class="iconfont icon-weixin-copy "></span></a>
-									<a href="#" style="text-decoration: none;"><span
-										style="font-size: 30px;" class="iconfont icon-QQ"></span></a>
-								</p> -->
 							</div>
 						</form>
 					</div>
@@ -96,19 +90,6 @@
 								<label>邮箱:</label> <input type="password" name="email"
 									class="form-control" placeholder="邮箱">
 							</div>
-							<!-- 	<div class="form-group">
-                                <label>手机验证码:</label>
-                                <div class="row">
-                                    <div class="col-xs-12">
-                                        <input type="text" name="phoneCode" class="form-control"
-                                            placeholder="验证码">
-                                    </div>
-                                    <div class="col-xs-12">
-                                        <input value="点击获取验证码" type="button" name="phoneCode"
-                                            class="form-control btn btn-default">
-                                    </div>
-                                </div>
-                            </div> -->
 							<div class="form-group"
 								style="margin-top: 30px; margin-bottom: 20px;">
 								<input type="submit" class="form-control btn btn-primary"
@@ -122,6 +103,7 @@
 		</div>
 	</div>
 	<%@ include file="/WEB-INF/jsp/footer.jsp"%>
+	<script src="${pageContext.request.contextPath}/static/js/checkCode.js"></script>
 	<script
 		src="${pageContext.request.contextPath}/static/lib/jquery/jquery.min.js"></script>
 	<script

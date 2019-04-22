@@ -53,9 +53,6 @@ public class InitServlet extends HttpServlet {
 						Object newInstance;
 						newInstance = clazz.newInstance();
 						String className=clazz.getName().substring(clazz.getName().lastIndexOf('.')+1);
-						if(className.equals("HostHolder")) {
-							System.out.println(newInstance);
-						}
 						sc.setAttribute(className, newInstance);
 					}
 				} catch (ClassNotFoundException e) {

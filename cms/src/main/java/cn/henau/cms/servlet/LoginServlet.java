@@ -2,6 +2,7 @@ package cn.henau.cms.servlet;
 
 import java.io.IOException;
 import java.util.Map;
+import java.util.UUID;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -50,7 +51,7 @@ public class LoginServlet extends HttpServlet {
     }
 
     private void login(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        req.getRequestDispatcher("/WEB-INF/jsp/login.jsp").forward(req, resp);
+    	req.getRequestDispatcher("/WEB-INF/jsp/login.jsp").forward(req, resp);
     }
 
     private void doLogin(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
