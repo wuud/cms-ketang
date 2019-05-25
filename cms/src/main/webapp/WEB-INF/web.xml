@@ -8,6 +8,22 @@
 		<servlet-class>cn.henau.cms.servlet.InitServlet</servlet-class>
 		<load-on-startup>1</load-on-startup>
 	</servlet>
+	<error-page>
+		<exception-type>java.lang.Exception</exception-type>
+		<location>/exception</location>
+	</error-page>
+	<!-- <filter>
+		<filter-name>LoginFilter</filter-name>
+		<filter-class>cn.henau.cms.filter.LoginFilter</filter-class>
+	</filter>
+	<filter>
+		<filter-name>AlreadyLoginFilter</filter-name>
+		<filter-class>cn.henau.cms.filter.AlreadyLoginFilter</filter-class>
+	</filter> -->
+	<!-- <filter-mapping>
+		<filter-name>AlreadyLoginFilter</filter-name>
+	</filter-mapping> -->
+	
 	<!-- <servlet>
 		<servlet-name>CourseServlet</servlet-name>
 		<servlet-class>cn.henau.cms.servlet.CourseServlet</servlet-class>

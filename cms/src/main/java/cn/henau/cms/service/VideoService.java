@@ -17,8 +17,8 @@ public class VideoService {
 	public Video getVideoById(int id) {
 		return videoDao.getVideoById(id);
 	}
-	public List<Video> getVideoByCourse(int courseId){
-		return videoDao.getVideoByCourse(courseId);
+	public List<Video> getVideoByCourse(String courseName){
+		return videoDao.getVideoByCourse(courseName);
 	}
 	
 	public void addVideo(Video video) {
@@ -26,6 +26,9 @@ public class VideoService {
 		VideoDao dao = session.getMapper(VideoDao.class);
 		dao.addVideo(video);
 		session.commit();
+	}
+	public List<Video> getAllVideo(){
+		return videoDao.getAllVideo();
 	}
 
 }

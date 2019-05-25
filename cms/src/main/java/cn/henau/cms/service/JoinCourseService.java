@@ -6,7 +6,7 @@ import java.util.List;
 import java.util.Set;
 
 import cn.henau.cms.annotation.Component;
-import cn.henau.cms.utils.JedisKeyUtils;
+import cn.henau.cms.utils.JedisKeyUtil;
 import redis.clients.jedis.Jedis;
 import redis.clients.jedis.Transaction;
 
@@ -19,8 +19,8 @@ public class JoinCourseService {
 	 * 用户参加课程
 	 */
 	public boolean joinCourse(int courseId,int userId) {
-		String joinCourseKey = JedisKeyUtils.getJoinCourseKey(courseId);
-		String userJoinKey = JedisKeyUtils.getUserJoinKey(userId);
+		String joinCourseKey = JedisKeyUtil.getJoinCourseKey(courseId);
+		String userJoinKey = JedisKeyUtil.getUserJoinKey(userId);
 		
 		Jedis jedis = jedisAdapter.getJedis();
 		Transaction transaction = jedisAdapter.multi(jedis);
@@ -35,8 +35,8 @@ public class JoinCourseService {
 	 * 用户取消参加课程
 	 */
 	public boolean unJoinCourse(int courseId,int userId) {
-		String joinCourseKey = JedisKeyUtils.getJoinCourseKey(courseId);
-		String userJoinKey = JedisKeyUtils.getUserJoinKey(userId);
+		String joinCourseKey = JedisKeyUtil.getJoinCourseKey(courseId);
+		String userJoinKey = JedisKeyUtil.getUserJoinKey(userId);
 		
 		Jedis jedis = jedisAdapter.getJedis();
 		Transaction transaction = jedisAdapter.multi(jedis);
@@ -58,7 +58,7 @@ public class JoinCourseService {
 	 * 得到当前课程的所有参加用户
 	 */
 	public List<Integer> getCourseUsers(int courseId){
-		String joinCourseKey = JedisKeyUtils.getJoinCourseKey(courseId);
+		String joinCourseKey = JedisKeyUtil.getJoinCourseKey(courseId);
 		
 		Set<String> zrevrange = jedisAdapter.zrevrange(joinCourseKey, 0, countCourses(courseId));
 		if(zrevrange==null) {
@@ -72,7 +72,7 @@ public class JoinCourseService {
 	 * 得到当前用户参加了哪些课程
 	 */
 	public List<Integer> getUserCourses(int userId){
-		String userJoinKey = JedisKeyUtils.getUserJoinKey(userId);
+		String userJoinKey = JedisKeyUtil.getUserJoinKey(userId);
 		
 		Set<String> zrevrange = jedisAdapter.zrevrange(userJoinKey, 0, countUsers(userId));
 		if(zrevrange==null) {
@@ -86,7 +86,7 @@ public class JoinCourseService {
 	 * 得到用户参加了多少课程
 	 */
 	public Integer countUsers(int userId) {
-		String userJoinKey = JedisKeyUtils.getUserJoinKey(userId);
+		String userJoinKey = JedisKeyUtil.getUserJoinKey(userId);
 		long count = jedisAdapter.zcard(userJoinKey);
 		return (int) count;
 	}
@@ -94,7 +94,7 @@ public class JoinCourseService {
 	 * 得到该课程有多少人参加
 	 */
 	public Integer countCourses(int courseId) {
-		String joinCourseKey = JedisKeyUtils.getJoinCourseKey(courseId);
+		String joinCourseKey = JedisKeyUtil.getJoinCourseKey(courseId);
 		long count = jedisAdapter.zcard(joinCourseKey);
 		return (int) count;
 	}

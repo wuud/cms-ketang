@@ -8,7 +8,9 @@ public interface VideoDao {
 
     Video getVideoById(int id);
 
-    List<Video> getVideoByCourse(int courseId);
+    List<Video> getVideoByCourse(String courseName);
+    
+    List<Video> getAllVideo();
 
     void addVideo(Video video);
 

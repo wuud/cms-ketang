@@ -16,21 +16,21 @@
             <ul class="nav navbar-nav">
                 <li><a href="${pageContext.request.contextPath}/index">首页</a></li>
                 <li><a href="${pageContext.request.contextPath}/allCourse">全部课程</a></li>
-                <li><a href="${pageContext.request.contextPath}/download">资料下载</a></li>
                 <c:if test="${user.roleId.id>=2}">
                     <li><a href="${pageContext.request.contextPath}/addCourse">发布课程</a></li>
                     <c:if test="${user.roleId.id>=3}">
                         <li><a href="${pageContext.request.contextPath}/admin">后台管理</a></li>
                     </c:if>
                 </c:if>
-                <li><a href="${pageContext.request.contextPath}/feedback">意见反馈</a></li>
+                <li><a href="${pageContext.request.contextPath}/projectCount">项目统计</a></li>
+                <li><a href="https://gitee.com/software_16_group_12/starting_online_classroom/blob/master/README.md">关于我们</a></li>
             </ul>
             <div class="navbar-form navbar-left">
                 <form action="${pageContext.request.contextPath}/searchCourse" method="post">
                     <div class="input-group">
-                        <input type="text" name="search_str" class="form-control"
+                        <input type="text" name="courseInfo" class="form-control"
                                placeholder="课程名称"> <span class="input-group-btn">
-								<button type="button" class="btn btn-primary">
+								<button type="submit" class="btn btn-primary">
 									<span class="glyphicon glyphicon-search"></span>
 								</button>
 							</span>

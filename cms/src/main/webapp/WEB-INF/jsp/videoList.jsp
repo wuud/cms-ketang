@@ -39,8 +39,8 @@
         <c:forEach items="${videoList }" var="video" varStatus="status">
             <tr height="60px" style="line-height:60px;font-size:18px">
                 <th scope="row" style="text-align: center;padding-top:20px;">${status.count}</th>
-                <td style="text-align: center;padding-top:20px;"><a
-                        href="${pageContext.request.contextPath}/course/${courseId}/${video.id}">
+                <td style="text-align: center;padding-top:20px;">
+                <a href="${pageContext.request.contextPath}/course/video/${courseId}_${video.id}">
                         ${video.vname }</a></td>
                 <td style="text-align: center;padding-top:20px;">${video.videoSize}M</td>
             </tr>

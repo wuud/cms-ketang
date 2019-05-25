@@ -7,13 +7,19 @@
         select
         <include refid="videoFileds"/>
         from video v,course c
-        where v.course_id=c.id and v.id=#{videoId}
+        where v.course_id=c.cname and v.id=#{videoId}
     </select>
     <select id="getVideoByCourse" resultMap="Video">
         select
         <include refid="videoFileds"/>
         from video v,course c
-        where v.course_id=c.id and v.course_id=#{courseId}
+        where v.course_id=c.cname and v.course_id=#{courseName}
+    </select>
+    
+    <select id="getAllVideo" resultMap="Video">
+    	select <include refid="videoFileds" />
+    	from video v,course c
+    	where v.course_id=c.cname
     </select>
 
     <resultMap type="cn.henau.cms.model.Video" id="Video">
@@ -21,7 +27,7 @@
         <result column="vname" property="vname"/>
         <result column="video_path" property="videoPath"/>
         <result column="video_size" property="videoSize"/>
-        <result column="course_id" property="course.id"/>
+        <result column="course_id" property="course.cname"/>
         <result column="cname" property="course.cname"/>
         <result column="user_id" property="course.user.id"/>
         <result column="picture" property="course.picture"/>
@@ -29,7 +35,7 @@
 
     <insert id="addVideo">
 	 	insert into video(vname,video_path,course_id,video_size) 
-	 				values(#{vname},#{videoPath},#{course.id},#{videoSize})
+	 				values(#{vname},#{videoPath},#{course.cname},#{videoSize})
 	</insert>
 
 </mapper>

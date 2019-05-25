@@ -63,7 +63,7 @@ public class LoginService {
 		}
 		Role role = roleDao.getRoleById(1);
 		User user = new User(username, password, email, phone, 0, new Date(), role);
-		userDao.insetUser(user);
+		userDao.insertUser(user);
 		String ticket = addTicket(userDao.getUserByName(username).getId(), "off");
 		map.put("ticket", ticket);
 		return map;

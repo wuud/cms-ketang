@@ -275,7 +275,7 @@
 
                 <div class="oper-bar" id="js_btn_bar">
                     <c:if test="${isJoin}">
-                        <a href="${pageContext.request.contextPath}/course/${course.id}/list">
+                        <a href="${pageContext.request.contextPath}/course/videoList/${course.id}">
 							<span
                                     class="btn-join js-apply-btn btn-default js-apply-btn-task "
                                     style="float: left">立即学习 </span>
@@ -333,7 +333,7 @@
                             </tr>
                             <tr>
                                 <th>资料下载</th>
-                                <td><a href="${pageContext.request.contextPath}/course/${course.id}/download">点此下载</a>
+                                <td><a href="${pageContext.request.contextPath}/course/download/${course.id}">点此下载</a>
                                 </td>
                             </tr>
 

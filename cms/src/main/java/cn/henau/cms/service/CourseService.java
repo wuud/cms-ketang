@@ -14,6 +14,10 @@ public class CourseService {
 
     CourseDao courseDao = MybatisUtil.getClass(CourseDao.class);
 
+    public List<Course> searchCourse(String courseInfo) {
+		return courseDao.searchCourse("%"+courseInfo+"%");
+	}
+    
     public void insertCourse(Course c) {
     	SqlSession session = MybatisUtil.getSession();
     	CourseDao dao = session.getMapper(CourseDao.class);
@@ -41,7 +45,11 @@ public class CourseService {
     }
 
     public List<Course> getAllCourse() {
-        return courseDao.getAllCourse();
+    	SqlSession session = MybatisUtil.getSession();
+    	CourseDao mapper = session.getMapper(CourseDao.class);
+        List<Course> allCourse = mapper.getAllCourse();
+        session.close();
+        return allCourse;
     }
     
     public Integer countAllCourse() {

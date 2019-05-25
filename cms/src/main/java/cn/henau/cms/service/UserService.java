@@ -6,6 +6,7 @@ import java.util.List;
 import javax.servlet.ServletContext;
 import javax.servlet.http.HttpServletRequest;
 
+import org.apache.ibatis.session.SqlSession;
 import org.junit.runner.Request;
 
 import cn.henau.cms.annotation.Component;
@@ -17,7 +18,7 @@ import cn.henau.cms.utils.MybatisUtil;
 @Component
 public class UserService {
 
-	UserDao userDao=MybatisUtil.getClass(UserDao.class);
+	UserDao userDao = MybatisUtil.getClass(UserDao.class);
 	RoleService roleService;
 
 	public User getUserById(int id) {
@@ -27,7 +28,7 @@ public class UserService {
 	public void insertUser(User u) {
 		u.setAddDate(new Date());
 		u.setStatus(1);// 1表示正常状态，非1表示账户异常
-		userDao.insetUser(u);
+		userDao.insertUser(u);
 	}
 
 	public Integer countAllUser() {
@@ -38,13 +39,16 @@ public class UserService {
 		int offsetNum = page * pageSize;
 		return userDao.getUsersByPage(pageSize, offsetNum);
 	}
-	
+
 	public User getUserByName(String name) {
 		return userDao.getUserByName(name);
 	}
 
 	public void delUser(int id) {
-		userDao.delUser(id);
+		SqlSession session = MybatisUtil.getSession();
+		UserDao dao = session.getMapper(UserDao.class);
+		dao.delUser(id);
+		session.commit();
 	}
 
 	public void batchDelUsers(int[] ids) {
@@ -59,17 +63,24 @@ public class UserService {
 	}
 
 	public List<User> getUsersByRole(int roleId, int pageSize, int page) {
+		SqlSession session = MybatisUtil.getSession();
+		UserDao dao = session.getMapper(UserDao.class);
 		int offsetNum = pageSize * page;
-		return userDao.getUsersByRole(roleId, pageSize, offsetNum);
+		List<User> usersByRole = dao.getUsersByRole(roleId, pageSize, offsetNum);
+		session.commit();
+		return usersByRole;
 	}
 
 	public void updateUser(User u) {
-		userDao.updateUser(u);
+		SqlSession session = MybatisUtil.getSession();
+		UserDao dao = session.getMapper(UserDao.class);
+		dao.updateUser(u);
+		session.commit();
 	}
 
 	public void userPageControl(HttpServletRequest req, int roleId, int page, int pageSize) {
 		ServletContext servletContext = req.getServletContext();
-		this.roleService=(RoleService) servletContext.getAttribute("RoleService");
+		this.roleService = (RoleService) servletContext.getAttribute("RoleService");
 		List<Role> roleList = roleService.getAllRole();
 		req.setAttribute("roleList", roleList);
 		// 将分页查询的到的数据传给前端
@@ -82,13 +93,14 @@ public class UserService {
 	}
 
 	/**
-	 * 	进行分页控制
+	 * 进行分页控制
+	 * 
 	 * @param total
 	 * @param req
 	 * @param page
 	 * @param pageSize
 	 */
-	public void pageControl(int total,HttpServletRequest req,int page,int pageSize) {
+	public void pageControl(int total, HttpServletRequest req, int page, int pageSize) {
 		// 获得总页数
 		int totalPages = (int) Math.ceil(((double) total / pageSize));
 		// 获得上一页
@@ -98,12 +110,12 @@ public class UserService {
 		}
 		// 获得下一页
 		int nextPage = 0;
-		if (page < totalPages-1) {
+		if (page < totalPages - 1) {
 			nextPage = page + 1;
-		}else {
-			nextPage=totalPages-1;
+		} else {
+			nextPage = totalPages - 1;
 		}
-		
+
 		req.setAttribute("total", total);
 		req.setAttribute("totalPages", totalPages);
 		req.setAttribute("page", page);
