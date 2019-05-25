@@ -61,7 +61,7 @@ public class UserServlet extends HttpServlet {
 
 	public void getUserDetail(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		int userId = hostHolder.getUser().getId();
-		// 我参加的课程
+		// 鎴戝弬鍔犵殑璇剧▼
 		List<Integer> userCourses = joinCourseService.getUserCourses(userId);
 		List<Map<String, Object>> joinCourseList = new ArrayList<>();
 		if (userCourses != null) {
@@ -77,7 +77,7 @@ public class UserServlet extends HttpServlet {
 		req.setAttribute("joinCourseList", joinCourseList);
 
 		if (hostHolder.getUser().getRoleId().getId() >= 2) {
-			// 我发布的课程
+			// 鎴戝彂甯冪殑璇剧▼
 			List<Course> courseByUser = courseService.getCourseByUser(userId);
 			List<Map<String, Object>> myCourseList = new ArrayList<>();
 			for (Course c : courseByUser) {
@@ -136,31 +136,31 @@ public class UserServlet extends HttpServlet {
 				+ "					<button type=\"button\" class=\"close\" data-dismiss=\"modal\"\r\n"
 				+ "						aria-label=\"Close\">\r\n" + "						<span>&times;</span>\r\n"
 				+ "					</button>\r\n"
-				+ "					<h4 class=\"modal-title\" id=\"myModalLabel\">编辑用户</h4>\r\n"
+				+ "					<h4 class=\"modal-title\" id=\"myModalLabel\">缂栬緫鐢ㄦ埛</h4>\r\n"
 				+ "				</div>\r\n" + "				<div class=\"modal-body\">\r\n"
 				+ "					<form id=\"updateUserForm\"\r\n" + "						action=\"" + path
 				+ "/admin/updateUser\"\r\n" + "						method=\"post\">\r\n"
 				+ "                       <input type='hidden' name='userId' value='" + u.getId() + "'/>"
 				+ "						<div class=\"form-group\">\r\n"
-				+ "							<label>用户名：</label> <input type=\"text\" name=\"username\"\r\n"
+				+ "							<label>鐢ㄦ埛鍚嶏細</label> <input type=\"text\" name=\"username\"\r\n"
 				+ "								class=\"form-control\" value=\"" + u.getUsername() + "\">\r\n"
 				+ "						</div>\r\n" + "						<div class=\"form-group\">\r\n"
-				+ "							<label>密码（留空表示不修改）：</label> <input type=\"password\" name=\"password\"\r\n"
-				+ "								class=\"form-control\" placeholder=\"密码已加密\">\r\n"
+				+ "							<label>瀵嗙爜锛堢暀绌鸿〃绀轰笉淇敼锛夛細</label> <input type=\"password\" name=\"password\"\r\n"
+				+ "								class=\"form-control\" placeholder=\"瀵嗙爜宸插姞瀵哱\"> \r\n "
 				+ "						</div>\r\n" + "						<div class=\"form-group\">\r\n"
-				+ "							<label>手机号：</label> <input type=\"text\" name=\"phone\"\r\n"
+				+ "							<label>鎵嬫満鍙凤細</label> <input type=\"text\" name=\"phone\"\r\n"
 				+ "								class=\"form-control\" value=\"" + u.getPhone() + "\">\r\n"
 				+ "						</div>\r\n" + "						<div class=\"form-group\">\r\n"
-				+ "							<label>邮箱：</label> <input type=\"text\" name=\"email\"\r\n"
+				+ "							<label>閭锛�</label> <input type=\"text\" name=\"email\"\r\n"
 				+ "								class=\"form-control\" value=\"" + u.getEmail() + "\">\r\n"
 				+ "						</div>\r\n" + "						<div class=\"form-group\">\r\n"
-				+ "							<label>用户类型：</label> <select class=\"selectpicker form-control\"\r\n"
+				+ "							<label>鐢ㄦ埛绫诲瀷锛�</label> <select class=\"selectpicker form-control\"\r\n"
 				+ "								name=\"role_Id\">\r\n" + optStr
 				+ "							</select>\r\n" + "						</div>\r\n"
 				+ "					</form>\r\n" + "				</div>\r\n"
 				+ "				<div class=\"modal-footer\">\r\n"
-				+ "					<button type=\"button\" class=\"btn btn-default\" data-dismiss=\"modal\">关闭</button>\r\n"
-				+ "					<button onclick=\"updateUserFromSubmit()\" type=\"button\" class=\"btn btn-primary\">完成</button>\r\n"
+				+ "					<button type=\"button\" class=\"btn btn-default\" data-dismiss=\"modal\">鍏抽棴</button>\r\n"
+				+ "					<button onclick=\"updateUserFromSubmit()\" type=\"button\" class=\"btn btn-primary\">瀹屾垚</button>\r\n"
 				+ "				</div>\r\n" + "			</div>\r\n" + "		</div>".getBytes("UTF-8"));
 	}
 }

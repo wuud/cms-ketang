@@ -10,6 +10,11 @@
         from course c,user u
         where c.user_id=u.id and c.id=#{id}
     </select>
+    <select id="searchCourse" resultMap="course">
+    	select <include refid="course_fileds" />
+    	from course c,user u
+    	where c.cname like #{courseInfo} and c.user_id=u.id
+    </select>
     <select id="getCourseByName" resultMap="course">
         select
         <include refid="course_fileds"/>
